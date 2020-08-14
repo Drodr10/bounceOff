@@ -1,2 +1,2 @@
-# bounceOff
-My own version of a bounce off function
+# p5.play-boilerplate
+Boiler plate for p5.play
