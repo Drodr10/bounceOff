@@ -1,54 +1,40 @@
-var fixedRect, movingRect;
+var fixedRect;
 var gameObject1, gameObject2, gameObject3, gameObject4;
-var rand;
 
 function setup() {
   createCanvas(800,400);
-  fixedRect = createSprite(200, 400, 50, 50);
-  movingRect = createSprite(400,200, 70, 20);
-  gameObject1 = createSprite(300, 100, 40, 30);
-  gameObject2 = createSprite(100, 300, 40, 20);
-  gameObject3 = createSprite(500, 150, 30, 50);
-  gameObject4 = createSprite(600, 350, 60, 20);
+  
+  fixedRect = createSprite(400,200, 20, 20);
+  gameObject1 = createSprite(400, 0, 20, 50);
+  gameObject2 = createSprite(0, 200, 50, 20);
+  gameObject3 = createSprite(400, 400, 20, 50);
+  gameObject4 = createSprite(800, 200, 50, 20);
 
-  rand = random(-5 , 5);
 
   fixedRect.shapeColor = "green";
-  movingRect.shapeColor = "green";
+  gameObject1.shapeColor = "green";
+  gameObject2.shapeColor = "green";
+  gameObject3.shapeColor = "green";
+  gameObject4.shapeColor = "green";
 
-  fixedRect.debug = true;
-  movingRect.debug = true;
 
-  fixedRect.velocityY = -5;
-  fixedRect.velocityX = 5;
+  gameObject1.velocityY = 5;
 
-  movingRect.velocityY = 5;
-  movingRect.velocityX = -5
+  gameObject2.velocityX = 5;
 
-  gameObject1.velocityY = rand;
-  gameObject1.velocityX = -rand;
+  gameObject3.velocityY = -5;
 
-  rand = random(-5, 5);
-
-  gameObject2.velocityY = rand;
-  gameObject2.velocityX = -rand;
-
-  rand = random(-5, 5);
-
-  gameObject3.velocityY = rand;
-  gameObject3.velocityX = -rand;
-
-  rand = random(-5, 5);
-
-  gameObject4.velocityY = rand;
-  gameObject4.velocityX = -rand;
+  gameObject4.velocityX = -5;
 
 }
 
 function draw() {
   background(0);
 
-  bounceOff(gameObject2, gameObject1);
+  bounceOff(fixedRect, gameObject1);
+  bounceOff(fixedRect, gameObject2);
+  bounceOff(fixedRect, gameObject3);
+  bounceOff(fixedRect, gameObject4);
 
   drawSprites();
 }
